@@ -31,7 +31,7 @@ export const tryLoginFromServiceToken = (onSuccess, reauthenticationCallback) =>
     setReauthenticationCallback(reauthenticationCallback);
   
     appFetch(config.AUTH_BASE_PATH + '/login-with-token', fetchConfig('POST'),
-        authenticatedUser => onSuccess(authenticatedUser),
+        authenticatedUser => {console.log(authenticatedUser);onSuccess(authenticatedUser)},
         () => {console.log(getServiceToken()); removeServiceToken(); console.log(getServiceToken)}
     );
   

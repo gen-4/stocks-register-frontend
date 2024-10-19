@@ -38,6 +38,6 @@ html, body {
   font-size: 1.05rem;
 }
 
-button {
+.primary-button {
   background-color: var(--primary) !important;
 }

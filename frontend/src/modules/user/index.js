@@ -5,5 +5,6 @@ import * as selectors from './selectors';
 
 export { default as Login } from './components/Login';
 export { default as Logout } from './components/Logout';
+export { default as Register } from './components/Register';
 
 export default { actions, actionTypes, reducer, selectors };

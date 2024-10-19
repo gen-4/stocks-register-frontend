@@ -4,7 +4,8 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 import { FormattedMessage } from "react-intl";
 
-import { Button } from '@mui/material';
+import { Avatar, Button, Divider } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 
 import headerStyle from './header.module.css';
 
@@ -17,6 +18,8 @@ const Header = () => {
     const location = useLocation();
 
     const loggedIn = useSelector(user.selectors.isLoggedIn);
+    const username = useSelector(user.selectors.getUsername);
+    const userEmail = useSelector(user.selectors.getUserEmail);
 
     const isActive = (path) => location.pathname === path ? headerStyle.active : '';
 
@@ -31,14 +34,37 @@ const Header = () => {
                     <li className={ headerStyle.item + ' nav-item ' + isActive('/') }>
                         <Link to='/' className={ headerStyle.link + ' body-font' }><FormattedMessage id='stocks.app.Header.home' /></Link>
                     </li>
-                    <li className={ headerStyle.item + ' nav-item ' + isActive('/home') }>
-                        <Link className={ headerStyle.link + ' body-font' }><FormattedMessage id='stocks.app.Header.home' /></Link>
-                    </li>
                 </ul>
                 { loggedIn && 
-                    <Button onClick={ navigateToLogout }  variant="contained" type="submit" >
-                        <FormattedMessage id='stocks.app.Header.logout' />
-                    </Button>
+                    <div className='dropdown'>
+                        <Avatar data-bs-toggle='dropdown' aria-expanded='false'>
+                            <AccountCircle sx={{ fontSize: '2.4rem', bgcolor: 'var(--primary-50)' }} />
+                        </Avatar>
+                        <ul className={ headerStyle.menu + ' dropdown-menu dropdown-menu-end' }>
+                            <li>
+                                <div className={ headerStyle.dropdownItem }>
+                                    { username }
+                                </div>
+                            </li>
+                            <li>
+                                <div className={ headerStyle.dropdownItem }>
+                                    { userEmail }
+                                </div>
+                            </li>
+                            <Divider sx={{ borderWidth: '1px', borderColor: 'var(--primary-50)' }} />
+                            <li>
+                                <div className={ headerStyle.logoutDropdown + ' ' + headerStyle.dropdownItem }>
+                                    <Button 
+                                        className={ headerStyle.login }  
+                                        onClick={ navigateToLogout }  
+                                        variant="contained" type="submit" 
+                                    >
+                                        <FormattedMessage id='stocks.app.Header.logout' />
+                                    </Button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 }
                 { !loggedIn && 
                     <Button 

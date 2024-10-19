@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import AppGlobalComponents from './AppGlobalComponents';
 import Home from './Home';
-import { Login, Logout } from 'modules/user';
+import { Login, Logout, Register } from 'modules/user';
 // import { CreateEnterprise, UpdateEnterprise, TransferPage, CreateOrders, OrderByMarketPrice } from '../../stockmarket';
 // import { FindEnterprisesResult,FindEnterpriseResult, FindOrders , FindActionsResult} from './../../search';
 
@@ -17,12 +17,13 @@ const Body = () => {
 
 	return (
 
-		<div className="container" style={{ 'padding-top': '10%' }}>
+		<div className="container" style={{ 'paddingTop': '10%' }}>
 			<br />
 			<AppGlobalComponents />
 			<Routes>
 				<Route path="/" element={ <Home/> } />
 				{ !loggedIn && <Route path="/login" element={ <Login /> } /> }
+				{ !loggedIn && <Route path="/register" element={ <Register /> } /> }
 				{ loggedIn && <Route path="/logout" element={  <Logout /> } /> }
 				{/* {loggedIn && <Route exact path="/market/create_enterprise"><CreateEnterprise /></Route>}
 				{loggedIn && <Route exact path="/search/orders"><FindOrders /></Route>}

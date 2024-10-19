@@ -7,7 +7,7 @@ const registerCompleted = authenticatedUser => ({
 });
 
 export const register = ( user, onSuccess, onErrors, reauthenticationCallback ) => dispatch =>
-    backend.userService.signUp(user,
+    backend.userService.register(user,
         authenticatedUser => {
             dispatch(registerCompleted(authenticatedUser));
             onSuccess(user);

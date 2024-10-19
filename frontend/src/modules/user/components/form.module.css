@@ -11,6 +11,7 @@
 
 .submit {
     width: fit-content;
+    background-color: var(--primary) !important;
 }
 
 @media (max-width: 700px) {

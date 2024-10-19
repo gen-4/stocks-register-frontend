@@ -7,7 +7,9 @@ export default {
     'stocks.global.buttons.close': 'Close',
 	'stocks.global.buttons.submit': 'Submit',
 
-	'stocks.app.Home.welcome': 'Browse our catalog of products.',
+	'stocks.app.Home.title': 'Browse the last stocks transactions',
+	'stocks.app.Home.subtitle': "You don't have an account? Register now",
+	'stocks.app.Home.button.register': 'Register',
 
 	'stocks.app.Header.title': 'Stocks Register',
 	'stocks.app.Header.login': 'Login',
@@ -15,8 +17,13 @@ export default {
 	'stocks.app.Header.home': 'Home',
 	
 
-	'stocks.user.Login.email': 'email',
-	'stocks.user.Login.error.email': 'Email is required',
-	'stocks.user.Login.password': 'password',
-	'stocks.user.Login.error.password': 'Password is required',
+	'stocks.user.form.email': 'email',
+	'stocks.user.form.error.email': 'Email is required',
+	'stocks.user.form.username': 'username',
+	'stocks.user.form.error.username': 'Username is required',
+	'stocks.user.form.password': 'password',
+	'stocks.user.form.error.password': 'Password is required',
+	'stocks.user.form.repeatPassword': 'repeat password',
+	'stocks.user.form.error.repeatPassword': 'It is required to repeat password',
+	'stocks.user.form.error.different.repeatPassword': 'Passwords do not match'
 }
