@@ -1,0 +1,20 @@
+.container {
+    width: 100%;
+    padding: 5% 20%;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.submit {
+    width: fit-content;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 5% 0;
+    }
+}

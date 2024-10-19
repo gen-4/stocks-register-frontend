@@ -1,0 +1,40 @@
+.navbar {
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.item {
+    list-style: none;
+    border-bottom: 2px solid transparent;
+}
+
+.item:hover {
+    border-bottom: 2px solid var(--secondary);
+}
+
+.active {
+    border-bottom: 2px solid var(--accent);
+}
+
+.active:hover {
+    border-bottom: 2px solid var(--accent);
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.logo {
+    font-size: 3rem;
+}
+
+.login {
+    height: fit-content;
+}
+
+@media (max-width: 700px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+}

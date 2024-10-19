@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+:root {
+  --white: #F2F2F2;
+  --black: #0B0B0B;
+  --primary: #4400FF;
+  --primary-50: #4400FF88;
+  --secondary: #5739AA;
+  --secondary-50: #5739AA8E;
+  --terciary: #408069;
+  --accent: #FFEA00;
+
+  --error: #FF3100;
+  --info: #00A4FF;
+  --success: #23C78C;
+  --warning: #FFCB00;
+
+  --background: #1A2A3A;
+  --text-white: var(--white);
+  --text-black: var(--black);
+}
+
+.title-font {
+  font-family: "Arima", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.body-font {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+html, body {
+  background-color: var(--background);
+  color: var(--text-white);
+  font-size: 1.05rem;
+}
+
+button {
+  background-color: var(--primary) !important;
+}
