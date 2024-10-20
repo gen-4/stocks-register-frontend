@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 import { FormattedMessage } from "react-intl";
@@ -13,13 +13,13 @@ import user from 'modules/user';
 
 const Header = () => {
 
-    const dispatch = useDispatch();
     const navigator = useNavigate();
     const location = useLocation();
 
     const loggedIn = useSelector(user.selectors.isLoggedIn);
     const username = useSelector(user.selectors.getUsername);
     const userEmail = useSelector(user.selectors.getUserEmail);
+    const isAdmin = useSelector(user.selectors.isAdmin);
 
     const isActive = (path) => location.pathname === path ? headerStyle.active : '';
 
@@ -34,6 +34,13 @@ const Header = () => {
                     <li className={ headerStyle.item + ' nav-item ' + isActive('/') }>
                         <Link to='/' className={ headerStyle.link + ' body-font' }><FormattedMessage id='stocks.app.Header.home' /></Link>
                     </li>
+                    { isAdmin &&
+                        <li className={ headerStyle.item + ' nav-item ' + isActive('/admin/users') }>
+                            <Link to='/admin/users' className={ headerStyle.link + ' body-font' }>
+                                <FormattedMessage id='stocks.app.Header.manageUsers' />
+                            </Link>
+                        </li>
+                    }
                 </ul>
                 { loggedIn && 
                     <div className='dropdown'>
@@ -51,7 +58,9 @@ const Header = () => {
                                     { userEmail }
                                 </div>
                             </li>
+
                             <Divider sx={{ borderWidth: '1px', borderColor: 'var(--primary-50)' }} />
+                            
                             <li>
                                 <div className={ headerStyle.logoutDropdown + ' ' + headerStyle.dropdownItem }>
                                     <Button 

@@ -5,26 +5,30 @@ import { Route, Routes } from 'react-router-dom';
 import AppGlobalComponents from './AppGlobalComponents';
 import Home from './Home';
 import { Login, Logout, Register } from 'modules/user';
+import { ManageUsers } from 'modules/admin';
 // import { CreateEnterprise, UpdateEnterprise, TransferPage, CreateOrders, OrderByMarketPrice } from '../../stockmarket';
 // import { FindEnterprisesResult,FindEnterpriseResult, FindOrders , FindActionsResult} from './../../search';
 
-import users from 'modules/user';
+import user from 'modules/user';
 
 const Body = () => {
 
-	const loggedIn = useSelector(users.selectors.isLoggedIn);
-	// const isAdmin = useSelector(users.selectors.isAdmin);
+	const loggedIn = useSelector(user.selectors.isLoggedIn);
+	const isAdmin = useSelector(user.selectors.isAdmin);
 
 	return (
 
-		<div className="container" style={{ 'paddingTop': '10%' }}>
+		<div className="container" style={{ paddingTop: '10%' }}>
 			<br />
-			<AppGlobalComponents />
+			<div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} >
+				<AppGlobalComponents />
+			</div>
 			<Routes>
 				<Route path="/" element={ <Home/> } />
 				{ !loggedIn && <Route path="/login" element={ <Login /> } /> }
 				{ !loggedIn && <Route path="/register" element={ <Register /> } /> }
-				{ loggedIn && <Route path="/logout" element={  <Logout /> } /> }
+				{ loggedIn && <Route path="/logout" element={ <Logout /> } /> }
+				{ (loggedIn && isAdmin) && <Route path="/admin/users" element={ <ManageUsers /> } /> }
 				{/* {loggedIn && <Route exact path="/market/create_enterprise"><CreateEnterprise /></Route>}
 				{loggedIn && <Route exact path="/search/orders"><FindOrders /></Route>}
 				{loggedIn && <Route exact path="/users/update-profile"><UpdateProfile /></Route>}

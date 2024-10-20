@@ -4,7 +4,7 @@ import { useIntl, FormattedMessage } from 'react-intl';
 
 import { NetworkError } from 'backend';
 
-const ErrorDialog = ({error, onClose}) => {
+const ErrorDialog = ({ error, onClose }) => {
 
     const intl = useIntl();
 
@@ -12,7 +12,12 @@ const ErrorDialog = ({error, onClose}) => {
         return null;
     }
 
-    const modalStyle = {display: 'block'}; 
+    const modalStyle = { 
+        display: 'block', 
+        color: 'var(--text-black)'
+    }; 
+    const documentStyle = { border: '2px solid var(--error)' };
+    const buttonStyle = { backgroundColor: 'var(--primary)', color: 'var(--text-white)' }
     const message = error instanceof NetworkError ?
         intl.formatMessage({id: 'stocks.global.exceptions.NetworkError'}) :
         error.message;
@@ -21,7 +26,7 @@ const ErrorDialog = ({error, onClose}) => {
 
         <div className="modal" style={ modalStyle } tabIndex="-1" role="dialog">
             <div className="modal-dialog" role="document">
-                <div className="modal-content">
+                <div className="modal-content" style={ documentStyle }>
                     <div className="modal-header">
                         <h5 className="modal-title">
                             <FormattedMessage id="stocks.common.ErrorDialog.title"/>
@@ -31,7 +36,7 @@ const ErrorDialog = ({error, onClose}) => {
                         <p>{ message }</p>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary" 
+                        <button style={ buttonStyle } type="button" className="btn" 
                             data-dismiss="modal" 
                             onClick={ onClose }>
                             <FormattedMessage id="stocks.global.buttons.close"/>

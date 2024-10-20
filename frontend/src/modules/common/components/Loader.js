@@ -5,7 +5,7 @@ import { CircularProgress } from '@mui/material';
 
 import './Loader.css';
 
-const Loader = ({loading}) => loading && (
+const Loader = ({ loading }) => loading && (
     <div>
         <CircularProgress />
     </div>

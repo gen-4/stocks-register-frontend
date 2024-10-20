@@ -15,6 +15,7 @@ export default {
 	'stocks.app.Header.login': 'Login',
 	'stocks.app.Header.logout': 'Logout',
 	'stocks.app.Header.home': 'Home',
+	'stocks.app.Header.manageUsers': 'Manage users',
 	
 
 	'stocks.user.form.email': 'email',
@@ -25,5 +26,16 @@ export default {
 	'stocks.user.form.error.password': 'Password is required',
 	'stocks.user.form.repeatPassword': 'repeat password',
 	'stocks.user.form.error.repeatPassword': 'It is required to repeat password',
-	'stocks.user.form.error.different.repeatPassword': 'Passwords do not match'
+	'stocks.user.form.error.different.repeatPassword': 'Passwords do not match',
+
+	'stocks.admin.ManageUsers.table.header.email': 'Email',
+	'stocks.admin.ManageUsers.table.header.username': 'User name',
+	'stocks.admin.ManageUsers.table.header.registerDate': 'Register date',
+	'stocks.admin.ManageUsers.table.header.lastLogin': 'Last login',
+	'stocks.admin.ManageUsers.table.header.banned': 'Banned',
+	'stocks.admin.ManageUsers.table.header.enabled': 'Enabled',
+	'stocks.admin.ManageUsers.table.header.roles': 'Roles',
+
+	'stocks.admin.UserTableRow.tooltip.addRole': 'Add role',
+	'stocks.admin.UserTableRow.dialog.title': 'Add new role',
 }

@@ -7,7 +7,7 @@ import {
     setReauthenticationCallback,
 } from "./appFetch";
 
-import { config } from '../config/constants';
+import { config } from 'config/constants';
   
 export const login = (email, password, onSuccess, onErrors, reauthenticationCallback) =>
     appFetch(config.AUTH_BASE_PATH + '/login', fetchConfig('POST', { email, password }),
@@ -31,8 +31,8 @@ export const tryLoginFromServiceToken = (onSuccess, reauthenticationCallback) =>
     setReauthenticationCallback(reauthenticationCallback);
   
     appFetch(config.AUTH_BASE_PATH + '/login-with-token', fetchConfig('POST'),
-        authenticatedUser => {console.log(authenticatedUser);onSuccess(authenticatedUser)},
-        () => {console.log(getServiceToken()); removeServiceToken(); console.log(getServiceToken)}
+        authenticatedUser => onSuccess(authenticatedUser),
+        () => removeServiceToken()
     );
   
 }
