@@ -13,10 +13,10 @@ export const error = error => ({
     error
 });
 
-export const showInfo = (info) => ({
+export const showInfo = info => {console.log(info); return({
     type: actionTypes.SHOW_INFO,
     info
-});
+})};
 
 export const hidInfo = () => ({
     type: actionTypes.INFO_HIDDEN

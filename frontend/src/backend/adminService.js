@@ -29,8 +29,20 @@ export const removeRoleFromUser = ( userId, roleId, onSuccess, onErrors ) =>
         onErrors
     );
 
-export const manageUserBan = ( userId, ban, onSuccess, onErrors ) => {
+export const manageUserBan = ( userId, ban, onSuccess, onErrors ) =>
     appFetch(config.ADMIN_BASE_PATH + `/user/${userId}/ban`, fetchConfig('POST', { ban }),
         resp => onSuccess(resp.message),
         onErrors
-    );}
+    );
+
+export const getRequests = ( onSuccess, onErrors ) => 
+    appFetch(config.ADMIN_BASE_PATH + '/stocks/requests', fetchConfig('GET'),
+        requests => onSuccess(requests),
+        onErrors
+    );
+
+export const createStock = ( stock, onSuccess, onErrors ) =>
+    appFetch(config.ADMIN_BASE_PATH + '/stock', fetchConfig('PUT', stock),
+        request => onSuccess(request),
+        onErrors
+    );

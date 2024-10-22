@@ -50,5 +50,19 @@ export const manageUserBan = ( userId, banned, onSuccess, onErrors ) => dispatch
         onSuccess,
         onErrors
     );
+
+const requestsLoaded = requests => ({
+    type: actionTypes.REQUESTS_LOADED,
+    requests
+});
+
+export const loadRequests = ( onSuccess, onErrors ) => dispatch =>
+    backend.adminService.getRequests(
+        requests => {
+            dispatch(requestsLoaded(requests));
+            onSuccess();
+        },
+        onErrors
+    );
     
     

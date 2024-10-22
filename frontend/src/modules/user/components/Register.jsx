@@ -9,8 +9,6 @@ import { FormattedMessage, useIntl } from "react-intl";
 import { TextField, InputAdornment, Button } from "@mui/material";
 import { EmailOutlined, KeyOutlined, PersonOutlineRounded } from '@mui/icons-material';
 
-import formStyle from './form.module.css';
-
 import { config } from "config/constants";
 
 import user from 'modules/user';
@@ -63,7 +61,7 @@ const Register = () => {
     };
 
     return (
-        <div className={ formStyle.container }>
+        <div className="form-container">
             <Form
                 onSubmit={ onSubmit }
                 validate={ validate }
@@ -193,7 +191,7 @@ const Register = () => {
 
                         
 
-                        <Button className={ formStyle.submit } variant="contained" type="submit" >
+                        <Button className="submit-button" variant="contained" type="submit" >
                             <FormattedMessage id='stocks.global.buttons.submit' />
                         </Button>
                     </form>

@@ -20,6 +20,7 @@ const Header = () => {
     const username = useSelector(user.selectors.getUsername);
     const userEmail = useSelector(user.selectors.getUserEmail);
     const isAdmin = useSelector(user.selectors.isAdmin);
+    const isUser = useSelector(user.selectors.isUser);
 
     const isActive = (path) => location.pathname === path ? headerStyle.active : '';
 
@@ -38,6 +39,22 @@ const Header = () => {
                         <li className={ headerStyle.item + ' nav-item ' + isActive('/admin/users') }>
                             <Link to='/admin/users' className={ headerStyle.link + ' body-font' }>
                                 <FormattedMessage id='stocks.app.Header.manageUsers' />
+                            </Link>
+                        </li>
+                    }
+
+                    { isAdmin &&
+                        <li className={ headerStyle.item + ' nav-item ' + isActive('/stocks/manage-requests') }>
+                            <Link to='/stocks/manage-requests' className={ headerStyle.link + ' body-font' }>
+                                <FormattedMessage id='stocks.app.Header.manageStocksRequests' />
+                            </Link>
+                        </li>
+                    }
+
+                    { isUser &&
+                        <li className={ headerStyle.item + ' nav-item ' + isActive('/stocks') }>
+                            <Link to='/stocks' className={ headerStyle.link + ' body-font' }>
+                                <FormattedMessage id='stocks.app.Header.stocks' />
                             </Link>
                         </li>
                     }

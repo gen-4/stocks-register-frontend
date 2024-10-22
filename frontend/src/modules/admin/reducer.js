@@ -4,7 +4,8 @@ import * as actionTypes from './actionTypes';
 
 const initialState = {
     users: null,
-    roles: null
+    roles: null,
+    requests: null
 };
 
 const users = ( state = initialState.users, action ) => {
@@ -29,9 +30,21 @@ const roles = ( state = initialState.roles, action ) => {
     }
 }
 
+const requests = ( state = initialState.requests, action ) => {
+    switch ( action.type ) {
+        case actionTypes.REQUESTS_LOADED:
+            return action.requests;
+            
+        default:
+            return state;
+
+    }
+}
+
 const reducer = combineReducers({
     users,
-    roles
+    roles,
+    requests
 });
 
 export default reducer;

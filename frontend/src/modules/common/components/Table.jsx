@@ -9,7 +9,10 @@ import {
     Paper
 } from "@mui/material";
 
-import { UserTableRow } from "modules/admin";
+import { config } from "config/constants";
+
+import { UserTableRow, StocksRequestRow } from "modules/admin";
+import { StocksTableRow } from "modules/stocks";
 import { StyledTableCell } from "modules/common";
 
 const CustomTable = ({ data, type, headers }) => {
@@ -20,8 +23,8 @@ const CustomTable = ({ data, type, headers }) => {
                 <TableHead>
                     <TableRow>
                         { headers.map(header => (
-                            <StyledTableCell align="center">
-                                { header }
+                            <StyledTableCell align={ header.display }>
+                                { header.title }
                             </StyledTableCell>
                         )) }
                     </TableRow>
@@ -29,8 +32,14 @@ const CustomTable = ({ data, type, headers }) => {
                 <TableBody>
                     { data.map(row => {
                         switch (type) {
-                            case 'user':
+                            case config.TABLE_TYPE_USER:
                                 return (<UserTableRow { ...row } />);
+
+                            case config.TABLE_TYPE_STOCKS:
+                                return (<StocksTableRow { ...row } />);
+
+                            case config.TABLE_TYPE_REQUEST:
+                                return (<StocksRequestRow { ...row } />);
 
                             default:
                                 return null;

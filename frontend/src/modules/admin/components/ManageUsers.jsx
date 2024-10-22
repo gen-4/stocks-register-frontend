@@ -28,7 +28,10 @@ const ManageUsers = () => {
         dispatch(app.actions.loading());
         dispatch(admin.actions.loadUsers(
             () => dispatch(app.actions.loaded()),
-            errors => dispatch(app.actions.showInfo({ severity: config.SEVERITY_ERROR, message: errors.message }))
+            errors => {
+                dispatch(app.actions.showInfo({ severity: config.SEVERITY_ERROR, message: errors.message }));
+                dispatch(app.actions.loaded());
+            }
         ));
         dispatch(admin.actions.loadRoles(
             errors => dispatch(app.actions.showInfo({ severity: config.SEVERITY_ERROR, message: errors.message }))
@@ -40,20 +43,41 @@ const ManageUsers = () => {
     }
 
     const headers = [
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.email' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.username' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.registerDate' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.lastLogin' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.banned' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.enabled' }),
-        intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.roles' })
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.email' }),
+            display: "left"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.username' }),
+            display: "left"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.registerDate' }),
+            display: "left"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.lastLogin' }),
+            display: "left"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.banned' }),
+            display: "center"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.enabled' }),
+            display: "center"
+        },
+        {
+            title: intl.formatMessage({ id: 'stocks.admin.ManageUsers.table.header.roles' }),
+            display: "left"
+        }
     ];
 
     return (
         <div>
 
             { users &&
-                <Table data={ users } type='user' headers={ headers } />
+                <Table data={ users } type={ config.TABLE_TYPE_USER } headers={ headers } />
             }
 
         </div>

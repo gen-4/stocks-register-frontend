@@ -14,3 +14,6 @@ export const getUserEmail = state =>
 
 export const isAdmin = state =>
     isLoggedIn(state) ? getUser(state).roles.some(role => role.role === 'ADMIN') : false;
+
+export const isUser = state =>
+    isLoggedIn(state) ? getUser(state).roles.some(role => role.role === 'USER') : false;

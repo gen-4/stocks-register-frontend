@@ -45,3 +45,25 @@ html, body {
 .primary-button {
   background-color: var(--primary) !important;
 }
+
+.form-container {
+  width: 100%;
+  padding: 5% 20%;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.submit-button {
+  width: fit-content;
+  background-color: var(--primary) !important;
+}
+
+@media (max-width: 700px) {
+  .form-container {
+      padding: 5% 0;
+  }
+}

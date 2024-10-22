@@ -5,3 +5,6 @@ export const getUsers = state =>
 
 export const getRoles = state => 
     getModuleState(state).roles;
+
+export const getRequests = state => 
+    getModuleState(state).requests;

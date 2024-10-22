@@ -16,6 +16,8 @@ export default {
 	'stocks.app.Header.logout': 'Logout',
 	'stocks.app.Header.home': 'Home',
 	'stocks.app.Header.manageUsers': 'Manage users',
+	'stocks.app.Header.stocks': 'Stocks',
+	'stocks.app.Header.manageStocksRequests': 'Manage Stocks Requests',
 	
 
 	'stocks.user.form.email': 'email',
@@ -38,4 +40,16 @@ export default {
 
 	'stocks.admin.UserTableRow.tooltip.addRole': 'Add role',
 	'stocks.admin.UserTableRow.dialog.title': 'Add new role',
+
+	'stocks.admin.stocks.table.header.name': 'Name',
+	'stocks.admin.stocks.tooltip.requestStock': 'Request new stock',
+
+	'stocks.stocks.form.name': 'name',
+	'stocks.stocks.form.error.name': 'Name is required',
+	'stocks.stocks.CreateStock.success': 'Stock requested',
+
+	'stocks.admin.ManageStocksRequests.table.header.name': 'Name',
+	'stocks.admin.ManageStocksRequests.table.header.registerDate': 'Register date',
+	'stocks.admin.ManageStocksRequests.table.header.aprovalDate': 'Aproval date',
+	'stocks.admin.ManageStocksRequests.table.header.status': 'Status'
 }
